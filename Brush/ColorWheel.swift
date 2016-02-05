@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColorWheel: UIControl {
+class ColorWheel: UIView {
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
@@ -16,7 +16,7 @@ class ColorWheel: UIControl {
         
         var wheelRect: CGRect = CGRectZero
         wheelRect.size.width = bounds.width
-        wheelRect.size.height = wheelRect.size.width
+        wheelRect.size.height = bounds.height
         wheelRect.origin.x = 0.0
         wheelRect.origin.y = (bounds.height - wheelRect.height) * 0.5
         

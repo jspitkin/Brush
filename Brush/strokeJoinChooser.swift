@@ -20,6 +20,5 @@ class strokeJoinChooser: UIControl {
         joinChooserRect.origin.x = 0.0
         joinChooserRect.origin.y = (bounds.height - joinChooserRect.height) * 0.5
         
-        CGContextSetFillColorWithColor(context, UIColor.purpleColor().CGColor)
     }
 }

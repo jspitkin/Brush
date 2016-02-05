@@ -20,6 +20,5 @@ class strokeEndCapChooser: UIControl {
         endCapRect.origin.x = 0.0
         endCapRect.origin.y = (bounds.height - endCapRect.height) * 0.5
         
-        CGContextSetFillColorWithColor(context, UIColor.greenColor().CGColor)
     }
 }

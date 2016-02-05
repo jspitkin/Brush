@@ -18,8 +18,7 @@ class brushPreview: UIControl {
         brushPreviewRect.size.width = bounds.width
         brushPreviewRect.size.height = bounds.height
         brushPreviewRect.origin.x = 0.0
-        brushPreviewRect.origin.y = (bounds.height - wheelRect.height) * 0.5
+        brushPreviewRect.origin.y = (bounds.height - brushPreviewRect.height) * 0.5
         
-        CGContextSetFillColorWithColor(context, UIColor.whiteColor().CGColor)
     }
 }

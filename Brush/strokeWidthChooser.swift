@@ -20,6 +20,5 @@ class strokeWidthChooser: UIControl {
         widthChooserRect.origin.x = 0.0
         widthChooserRect.origin.y = (bounds.height - widthChooserRect.height) * 0.5
         
-        CGContextSetFillColorWithColor(context, UIColor.yellowColor().CGColor)
     }
 }
