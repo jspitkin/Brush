@@ -12,10 +12,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var controlPanel: ControlPanelView?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        let controlsViewController: UIViewController = UIViewController()
+        controlsViewController.view.backgroundColor = UIColor.darkGrayColor()
+        
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.rootViewController = controlsViewController
+        window?.makeKeyAndVisible()
+        
+        controlPanel = ControlPanelView(frame: window!.bounds)
+        controlsViewController.view.addSubview(controlPanel!)
+        
         return true
     }
 
