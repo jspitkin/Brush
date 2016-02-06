@@ -20,56 +20,56 @@ class ControlPanelView: UIView {
         super.init(frame: frame)
         
         _colorWheel = ColorWheel()
-        _colorWheel.backgroundColor = UIColor.redColor()
+        _colorWheel.backgroundColor = UIColor.clearColor()
         _colorWheel.translatesAutoresizingMaskIntoConstraints = false
+        _colorWheel.addTarget(self, action: "colorChanged", forControlEvents: .ValueChanged)
         addSubview(_colorWheel)
         
         _endCapChooser = strokeEndCapChooser()
-        _endCapChooser.backgroundColor = UIColor.whiteColor()
+        _endCapChooser.backgroundColor = UIColor.clearColor()
         _endCapChooser.translatesAutoresizingMaskIntoConstraints = false
+        _endCapChooser.addTarget(self, action: "endCapChanged", forControlEvents: .ValueChanged)
         addSubview(_endCapChooser)
         
         _joinChooser = strokeJoinChooser()
-        _joinChooser.backgroundColor = UIColor.purpleColor()
+        _joinChooser.backgroundColor = UIColor.clearColor()
         _joinChooser.translatesAutoresizingMaskIntoConstraints = false
         addSubview(_joinChooser)
         
         _widthChooser = strokeWidthChooser()
-        _widthChooser.backgroundColor = UIColor.yellowColor()
+        _widthChooser.backgroundColor = UIColor.clearColor()
         _widthChooser.translatesAutoresizingMaskIntoConstraints = false
         addSubview(_widthChooser)
         
         _brushPreview = brushPreview()
-        _brushPreview.backgroundColor = UIColor.blueColor()
+        _brushPreview.backgroundColor = UIColor.clearColor()
         _brushPreview.translatesAutoresizingMaskIntoConstraints = false
         addSubview(_brushPreview)
         
         let views: [String:UIView] = ["wheel":_colorWheel, "cap":_endCapChooser, "join":_joinChooser, "width":_widthChooser, "preview":_brushPreview]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[wheel]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
-        
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[cap]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
-        
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[join]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
-        
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[width]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
-        
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[preview]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
-        
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[wheel]-[cap]-[join]-[width]-[preview]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
-        
-        addConstraint(NSLayoutConstraint(item: _colorWheel, attribute: .Height, relatedBy: .Equal, toItem: _endCapChooser, attribute: .Height, multiplier: 5.0, constant: 0.0))
-        
-        addConstraint(NSLayoutConstraint(item: _endCapChooser, attribute: .Height, relatedBy: .Equal, toItem: _joinChooser, attribute: .Height, multiplier: 1.0, constant: 0.0))
-        
-        addConstraint(NSLayoutConstraint(item: _joinChooser, attribute: .Height, relatedBy: .Equal, toItem: _widthChooser, attribute: .Height, multiplier: 1.0, constant: 0.0))
-        
-        addConstraint(NSLayoutConstraint(item: _widthChooser, attribute: .Height, relatedBy: .Equal, toItem: _brushPreview, attribute: .Height, multiplier: 1.0, constant: 0.0))
-    
+        addConstraint(NSLayoutConstraint(item: _colorWheel, attribute: .Height, relatedBy: .Equal, toItem: _joinChooser, attribute: .Height, multiplier: 5.0,constant: 0.0))
+        addConstraint(NSLayoutConstraint(item: _endCapChooser, attribute: .Height, relatedBy: .Equal, toItem: _widthChooser, attribute: .Height, multiplier: 1.0, constant: 0.0))
+        addConstraint(NSLayoutConstraint(item: _joinChooser, attribute: .Height, relatedBy: .Equal, toItem: _widthChooser, attribute: .Height, multiplier: 1.75, constant: 0.0))
+        addConstraint(NSLayoutConstraint(item: _brushPreview, attribute: .Height, relatedBy: .Equal, toItem: _joinChooser, attribute: .Height, multiplier: 1.0, constant: 0.0))
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func colorChanged() {
+        print("Color changed to: \(_colorWheel.color)")
+    }
+    
+    func endCapChanged() {
+        print("End cap changed to: \(_endCapChooser.endCap)")
     }
     
     var colorWheel: ColorWheel { return _colorWheel }

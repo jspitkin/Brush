@@ -8,7 +8,36 @@
 
 import UIKit
 
-class ColorWheel: UIView {
+class ColorWheel: UIControl {
+    private var _color: UIColor = UIColor.whiteColor()
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
+        
+        let touch: UITouch = touches.first!
+        let touchPoint: CGPoint = touch.locationInView(self)
+        print("Began touchPoint: (\(touchPoint.x), \(touchPoint.y))")
+        getColor()
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesMoved(touches, withEvent: event)
+        
+        let touch: UITouch = touches.first!
+        let touchPoint: CGPoint = touch.locationInView(self)
+        print("Moved touchPoint: (\(touchPoint.x), \(touchPoint.y))")
+        getColor()
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesEnded(touches, withEvent: event)
+        
+        let touch: UITouch = touches.first!
+        let touchPoint: CGPoint = touch.locationInView(self)
+        print("End touchPoint: (\(touchPoint.x), \(touchPoint.y))")
+        getColor()
+    }
+    
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
@@ -23,4 +52,11 @@ class ColorWheel: UIView {
         CGContextSetFillColorWithColor(context, UIColor.blueColor().CGColor)
         CGContextFillEllipseInRect(context, wheelRect)
     }
+    
+    func getColor() {
+        // TODO: Get color that is selected on color wheel
+        sendActionsForControlEvents(UIControlEvents.ValueChanged)
+    }
+    
+    var color: UIColor { return _color }
 }

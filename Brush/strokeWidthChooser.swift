@@ -14,11 +14,8 @@ class strokeWidthChooser: UIControl {
         
         let context: CGContext? = UIGraphicsGetCurrentContext()
         
-        var widthChooserRect: CGRect = CGRectZero
-        widthChooserRect.size.width = bounds.width
-        widthChooserRect.size.height = bounds.height
-        widthChooserRect.origin.x = 0.0
-        widthChooserRect.origin.y = (bounds.height - widthChooserRect.height) * 0.5
+        let widthSlider: UISlider = UISlider(frame: CGRectMake(5, 0, bounds.width - 10, bounds.height))
+        addSubview(widthSlider)
         
     }
 }

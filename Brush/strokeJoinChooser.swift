@@ -14,11 +14,6 @@ class strokeJoinChooser: UIControl {
         
         let context: CGContext? = UIGraphicsGetCurrentContext()
         
-        var joinChooserRect: CGRect = CGRectZero
-        joinChooserRect.size.width = bounds.width
-        joinChooserRect.size.height = bounds.height
-        joinChooserRect.origin.x = 0.0
-        joinChooserRect.origin.y = (bounds.height - joinChooserRect.height) * 0.5
         
     }
 }

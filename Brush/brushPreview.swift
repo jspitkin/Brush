@@ -8,17 +8,11 @@
 
 import UIKit
 
-class brushPreview: UIControl {
+class brushPreview: UIView {
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
         let context: CGContext? = UIGraphicsGetCurrentContext()
-        
-        var brushPreviewRect: CGRect = CGRectZero
-        brushPreviewRect.size.width = bounds.width
-        brushPreviewRect.size.height = bounds.height
-        brushPreviewRect.origin.x = 0.0
-        brushPreviewRect.origin.y = (bounds.height - brushPreviewRect.height) * 0.5
         
     }
 }
