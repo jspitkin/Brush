@@ -39,6 +39,7 @@ class ControlPanelView: UIView {
         _widthChooser = strokeWidthChooser()
         _widthChooser.backgroundColor = UIColor.clearColor()
         _widthChooser.translatesAutoresizingMaskIntoConstraints = false
+        _widthChooser.addTarget(self, action: "widthChanged", forControlEvents: .ValueChanged)
         addSubview(_widthChooser)
         
         _brushPreview = brushPreview()
@@ -66,10 +67,17 @@ class ControlPanelView: UIView {
     
     func colorChanged() {
         print("Color changed to: \(_colorWheel.color)")
+        _brushPreview.color = _colorWheel.color.CGColor
     }
     
     func endCapChanged() {
         print("End cap changed to: \(_endCapChooser.endCap)")
+        _brushPreview.endCap = _endCapChooser.endCap
+    }
+    
+    func widthChanged() {
+        print("Width changed to: \(_widthChooser.width)")
+        _brushPreview.width = _widthChooser.width
     }
     
     var colorWheel: ColorWheel { return _colorWheel }
