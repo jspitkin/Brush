@@ -13,13 +13,14 @@ class brushPreview: UIView {
     private var _endCap: CGLineCap!
     private var _lineJoin: CGLineJoin!
     private var _width: Float!
+    var test: Int = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         _endCap = CGLineCap.Round
         _color = UIColor.whiteColor().CGColor
         _lineJoin = CGLineJoin.Round
-        _width = 15.0
+        _width = 10.0
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,11 +37,16 @@ class brushPreview: UIView {
         CGContextSetLineCap(context, _endCap)
         CGContextSetLineJoin(context, _lineJoin)
         
-        
-        CGContextMoveToPoint(context, 0.0, 0.0)
-        CGContextAddLineToPoint(context, 10.0, 10.0)
+        let demoPath: CGMutablePathRef = CGPathCreateMutable();
+        CGPathMoveToPoint(demoPath, nil, bounds.width * 0.1, bounds.height * 0.6)
+        CGPathAddLineToPoint(demoPath, nil, bounds.width * 0.2, bounds.height * 0.2)
+        CGPathAddLineToPoint(demoPath, nil, bounds.width * 0.4, bounds.height * 0.3)
+        CGPathAddLineToPoint(demoPath, nil, bounds.width * 0.6, bounds.height * 0.6)
+        CGPathAddLineToPoint(demoPath, nil, bounds.width * 0.8, bounds.height * 0.3)
+        CGPathAddLineToPoint(demoPath, nil, bounds.width * 0.9, bounds.height * 0.6)
+        CGContextAddPath(context, demoPath)
         CGContextStrokePath(context)
-        
+
     }
     
     var color: CGColor {

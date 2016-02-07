@@ -13,7 +13,7 @@ class strokeWidthChooser: UIControl {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        _width = 15
+        _width = 10
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -25,7 +25,7 @@ class strokeWidthChooser: UIControl {
         let widthSlider: UISlider = UISlider(frame: CGRectMake(5, 0, bounds.width - 10, bounds.height))
         widthSlider.minimumValue = 0.5
         widthSlider.maximumValue = 50.0
-        widthSlider.value = 15
+        widthSlider.value = 10
         widthSlider.addTarget(self, action: "widthChanged:", forControlEvents: UIControlEvents.ValueChanged)
         addSubview(widthSlider)
         

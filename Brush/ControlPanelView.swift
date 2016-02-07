@@ -34,6 +34,7 @@ class ControlPanelView: UIView {
         _joinChooser = strokeJoinChooser()
         _joinChooser.backgroundColor = UIColor.clearColor()
         _joinChooser.translatesAutoresizingMaskIntoConstraints = false
+        _endCapChooser.addTarget(self, action: "joinChanged", forControlEvents: .ValueChanged)
         addSubview(_joinChooser)
         
         _widthChooser = strokeWidthChooser()
@@ -78,6 +79,12 @@ class ControlPanelView: UIView {
     func widthChanged() {
         print("Width changed to: \(_widthChooser.width)")
         _brushPreview.width = _widthChooser.width
+    }
+    
+    func joinChanged() {
+        print("Join changed: \(_joinChooser.join)")
+        _brushPreview.lineJoin = _joinChooser.join
+        
     }
     
     var colorWheel: ColorWheel { return _colorWheel }
