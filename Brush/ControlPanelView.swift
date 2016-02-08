@@ -34,7 +34,7 @@ class ControlPanelView: UIView {
         _joinChooser = strokeJoinChooser()
         _joinChooser.backgroundColor = UIColor.clearColor()
         _joinChooser.translatesAutoresizingMaskIntoConstraints = false
-        _endCapChooser.addTarget(self, action: "joinChanged", forControlEvents: .ValueChanged)
+        _joinChooser.addTarget(self, action: "joinChanged", forControlEvents: .ValueChanged)
         addSubview(_joinChooser)
         
         _widthChooser = strokeWidthChooser()
