@@ -59,10 +59,13 @@ class ColorPicker: UIControl {
         
         let context: CGContext? = UIGraphicsGetCurrentContext()
         
-        CGContextAddRect(context, CGRectMake(bounds.width * 0.05, 10, bounds.width * 0.9, bounds.height * 0.65))
-        CGContextSetFillColorWithColor(context, _color.CGColor)
+        CGContextAddRect(context, CGRectMake(bounds.width * 0.05, 10, bounds.width * 0.9, bounds.height * 0.645))
+        CGContextSetFillColorWithColor(context, UIColor.whiteColor().CGColor)
         CGContextFillPath(context)
         
+        CGContextAddRect(context, CGRectMake(bounds.width * 0.06, 15, bounds.width * 0.88, bounds.height * 0.62))
+        CGContextSetFillColorWithColor(context, _color.CGColor)
+        CGContextFillPath(context)
     }
     
     func redChanged(sender: UISlider) {
