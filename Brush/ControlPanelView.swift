@@ -10,7 +10,7 @@ import UIKit
 
 // A container of all the subviews. This containers role is to position the subviews it contains.
 class ControlPanelView: UIView {
-    private var _colorWheel: ColorWheel!
+    private var _colorPicker: ColorPicker!
     private var _endCapChooser: strokeEndCapChooser!
     private var _joinChooser: strokeJoinChooser!
     private var _widthChooser: strokeWidthChooser!
@@ -19,11 +19,11 @@ class ControlPanelView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        _colorWheel = ColorWheel()
-        _colorWheel.backgroundColor = UIColor.clearColor()
-        _colorWheel.translatesAutoresizingMaskIntoConstraints = false
-        _colorWheel.addTarget(self, action: "colorChanged", forControlEvents: .ValueChanged)
-        addSubview(_colorWheel)
+        _colorPicker = ColorPicker()
+        _colorPicker.backgroundColor = UIColor.clearColor()
+        _colorPicker.translatesAutoresizingMaskIntoConstraints = false
+        _colorPicker.addTarget(self, action: "colorChanged", forControlEvents: .ValueChanged)
+        addSubview(_colorPicker)
         
         _endCapChooser = strokeEndCapChooser()
         _endCapChooser.backgroundColor = UIColor.clearColor()
@@ -48,7 +48,7 @@ class ControlPanelView: UIView {
         _brushPreview.translatesAutoresizingMaskIntoConstraints = false
         addSubview(_brushPreview)
         
-        let views: [String:UIView] = ["wheel":_colorWheel, "cap":_endCapChooser, "join":_joinChooser, "width":_widthChooser, "preview":_brushPreview]
+        let views: [String:UIView] = ["wheel":_colorPicker, "cap":_endCapChooser, "join":_joinChooser, "width":_widthChooser, "preview":_brushPreview]
         
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[wheel]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[cap]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
@@ -56,7 +56,7 @@ class ControlPanelView: UIView {
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[width]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[preview]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[wheel]-[cap]-[join]-[width]-[preview]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
-        addConstraint(NSLayoutConstraint(item: _colorWheel, attribute: .Height, relatedBy: .Equal, toItem: _joinChooser, attribute: .Height, multiplier: 5.0,constant: 0.0))
+        addConstraint(NSLayoutConstraint(item: _colorPicker, attribute: .Height, relatedBy: .Equal, toItem: _joinChooser, attribute: .Height, multiplier: 5.0,constant: 0.0))
         addConstraint(NSLayoutConstraint(item: _endCapChooser, attribute: .Height, relatedBy: .Equal, toItem: _widthChooser, attribute: .Height, multiplier: 1.0, constant: 0.0))
         addConstraint(NSLayoutConstraint(item: _joinChooser, attribute: .Height, relatedBy: .Equal, toItem: _widthChooser, attribute: .Height, multiplier: 1.75, constant: 0.0))
         addConstraint(NSLayoutConstraint(item: _brushPreview, attribute: .Height, relatedBy: .Equal, toItem: _joinChooser, attribute: .Height, multiplier: 1.0, constant: 0.0))
@@ -67,8 +67,8 @@ class ControlPanelView: UIView {
     }
     
     func colorChanged() {
-        print("Color changed to: \(_colorWheel.color)")
-        _brushPreview.color = _colorWheel.color.CGColor
+        print("Color changed to: \(_colorPicker.color)")
+        _brushPreview.color = _colorPicker.color.CGColor
     }
     
     func endCapChanged() {
@@ -87,7 +87,7 @@ class ControlPanelView: UIView {
         
     }
     
-    var colorWheel: ColorWheel { return _colorWheel }
+    var colorPicker: ColorPicker { return _colorPicker }
     var endCapChooser: strokeEndCapChooser { return _endCapChooser }
     var joinChooser: strokeJoinChooser { return _joinChooser }
     var widthChooser: strokeWidthChooser { return _widthChooser }

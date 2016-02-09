@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D42E12B01C6524F300DD45E7 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E12AF1C6524F300DD45E7 /* ColorWheel.swift */; };
+		D42E12B01C6524F300DD45E7 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42E12AF1C6524F300DD45E7 /* ColorPicker.swift */; };
 		D47A801D1C65395200337AE4 /* strokeWidthChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A801C1C65395200337AE4 /* strokeWidthChooser.swift */; };
 		D47A801F1C65396200337AE4 /* strokeEndCapChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A801E1C65396200337AE4 /* strokeEndCapChooser.swift */; };
 		D47A80211C65398A00337AE4 /* strokeJoinChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A80201C65398A00337AE4 /* strokeJoinChooser.swift */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D42E12AF1C6524F300DD45E7 /* ColorWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
+		D42E12AF1C6524F300DD45E7 /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		D47A801C1C65395200337AE4 /* strokeWidthChooser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strokeWidthChooser.swift; sourceTree = "<group>"; };
 		D47A801E1C65396200337AE4 /* strokeEndCapChooser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strokeEndCapChooser.swift; sourceTree = "<group>"; };
 		D47A80201C65398A00337AE4 /* strokeJoinChooser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strokeJoinChooser.swift; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 			children = (
 				D4F2E89D1C64592B00892D67 /* AppDelegate.swift */,
 				D4F2E89F1C64592B00892D67 /* ControlPanelView.swift */,
-				D42E12AF1C6524F300DD45E7 /* ColorWheel.swift */,
+				D42E12AF1C6524F300DD45E7 /* ColorPicker.swift */,
 				D47A801E1C65396200337AE4 /* strokeEndCapChooser.swift */,
 				D47A80201C65398A00337AE4 /* strokeJoinChooser.swift */,
 				D47A801C1C65395200337AE4 /* strokeWidthChooser.swift */,
@@ -149,7 +149,7 @@
 				D4F2E89E1C64592B00892D67 /* AppDelegate.swift in Sources */,
 				D47A801D1C65395200337AE4 /* strokeWidthChooser.swift in Sources */,
 				D47A801F1C65396200337AE4 /* strokeEndCapChooser.swift in Sources */,
-				D42E12B01C6524F300DD45E7 /* ColorWheel.swift in Sources */,
+				D42E12B01C6524F300DD45E7 /* ColorPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

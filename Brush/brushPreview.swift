@@ -13,12 +13,11 @@ class brushPreview: UIView {
     private var _endCap: CGLineCap!
     private var _lineJoin: CGLineJoin!
     private var _width: Float!
-    var test: Int = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         _endCap = CGLineCap.Round
-        _color = UIColor.whiteColor().CGColor
+        _color = UIColor.grayColor().CGColor
         _lineJoin = CGLineJoin.Round
         _width = 10.0
     }
